@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar brand: "Livima Manager", brand_link: root_url do %>
+      <%= menu_group do%>
+        <%= menu_item "Cadastrar", funcionarios_new_path %>
+      <% end %>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
