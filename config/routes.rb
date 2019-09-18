@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "funcionarios/new", to: "funcionarios#new"
-  post "funcionarios", to: "funcionarios#create"
+  devise_for :users
+  resources :users
+  resources :funcionarios, only: [:new, :create, :destroy]
   root to: "funcionarios#index"
 end

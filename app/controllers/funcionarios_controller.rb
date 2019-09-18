@@ -6,6 +6,12 @@ class FuncionariosController < ApplicationController
     def create
         funcionario = params.require(:funcionario).permit(:nome, :email, :cargo, :salario)
         Funcionario.create funcionario
-        redirect_to root_path
-    end     
+        redirect_to root_url
+    end
+    
+    def destroy
+        id = params[:id]
+        Funcionario.destroy id
+        redirect_to root_url
+    end    
 end

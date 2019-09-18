@@ -5,6 +5,7 @@
             <td>Email</td>
             <td>Cargo</td>
             <td>Salário</td>
+            <td colspan="1">
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td><%= funcionario.email %> </td>
             <td><%= funcionario.cargo %> </td>
             <td><%= funcionario.salario %> </td>
+            <td><%= button_to "Remover", funcionario, method: :delete, class:"btn btn-danger", data: {confirm:"Tem certeza que deseja excluir este funcionário permanentemente?"}  %></td>
         </tr>
     <% end %>
     </tbody>
