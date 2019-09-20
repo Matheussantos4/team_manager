@@ -1,9 +1,3 @@
-<% if flash[:notice]  %>
-    <div class="alert alert-success" role="alert">
-        <%= flash[:notice] %>
-    </div>    
-<% end %>
-
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -11,7 +5,7 @@
             <td>Email</td>
             <td>Cargo</td>
             <td>Salário</td>
-            <td colspan="2">
+            <td colspan="1">
         </tr>
     </thead>
     <tbody>
@@ -21,10 +15,7 @@
             <td><%= funcionario.email %> </td>
             <td><%= funcionario.cargo %> </td>
             <td><%= funcionario.salario %> </td>
-            <td><%= link_to "Alterar", edit_funcionario_path(funcionario), class:"btn btn-default" %></td>
-            <td><%= button_to "Remover", funcionario, method: :delete, class:"btn btn-danger", 
-            data: {confirm:"Tem certeza que deseja excluir este funcionário permanentemente?"}  %></td>
-            
+            <td><%= button_to "Remover", funcionario, method: :delete, class:"btn btn-danger", data: {confirm:"Tem certeza que deseja excluir este funcionário permanentemente?"}  %></td>
         </tr>
     <% end %>
     </tbody>

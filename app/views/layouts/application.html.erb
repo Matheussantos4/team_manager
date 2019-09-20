@@ -11,9 +11,20 @@
 
   <body>
     <%= nav_bar brand: "Livima Manager", brand_link: root_url do %>
-      <%= menu_group do%>
-        <%= menu_item "Cadastrar", new_funcionario_path %>
-      <% end %>
+      <% if user_signed_in?%>
+        <%= menu_group do%>
+          <%= menu_item "Cadastrar", new_funcionario_path %>
+            <%= form_tag busca_funcionario_path, method: :get, class:"navbar-form navbar-right" do %>
+              <div class="form-group">
+                <%= text_field_tag :nome, @nome, class:"form-control" %>
+                <%= button_to "Buscar", nil, class:"btn btn-defaul" %>
+              </div>
+            <% end %>   
+        <% end %>
+        <%= menu_group pull: :right do %>  
+            <%= menu_item "Logout", destroy_user_session_path, method: :delete %>
+        <% end %>
+      <% end %> 
     <% end %>
     <div class="container">
       <%= yield %>

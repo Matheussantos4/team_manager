@@ -1,4 +1,10 @@
-<%= form_for Funcionario.new do |form| %>
+<% @funcionario.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>    
+<% end %>
+
+<%= form_for @funcionario do |form| %>
     <div class="row">
         <div class="col-sm-5">
             <div class="form-group">
