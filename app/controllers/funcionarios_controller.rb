@@ -13,6 +13,7 @@ class FuncionariosController < ApplicationController
         if @funcionario.save
             flash[:notice] = "Funcionario cadastrado com sucesso!"
             redirect_to root_url
+            SlackNotifier::CLIENT.ping "Novo funcionário cadastrado!"
         else
             render :new
         end         
@@ -22,6 +23,7 @@ class FuncionariosController < ApplicationController
         id = params[:id]
         Funcionario.destroy id
         redirect_to root_url
+        SlackNotifier::CLIENT.ping "Um funcionário foi removido!"
     end
     
     def busca

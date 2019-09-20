@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.6'
 
-
+gem 'slack-notifier'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
